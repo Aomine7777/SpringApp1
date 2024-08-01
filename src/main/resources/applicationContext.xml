@@ -11,7 +11,11 @@
     <context:property-placeholder location="musicPlayer.properties"/>
 
     <bean id="musicBean1"
-          class="org.ClassicalMusic">
+          class="org.ClassicalMusic"
+            init-method="doMyInit"
+            destroy-method="doMyDestroy"
+            scope="prototype"
+            factory-method="geClassicalMusic">
     </bean>
     <bean id="musicBean2"
           class="org.RapMusic">
