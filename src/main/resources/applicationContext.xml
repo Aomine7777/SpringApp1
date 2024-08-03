@@ -6,34 +6,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+       http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="musicPlayer.properties"/>
+   <context:component-scan base-package="org.music"/>
 
-    <bean id="musicBean1"
-          class="org.ClassicalMusic"
-            init-method="doMyInit"
-            destroy-method="doMyDestroy"
-            scope="prototype"
-            factory-method="geClassicalMusic">
-    </bean>
-    <bean id="musicBean2"
-          class="org.RapMusic">
-    </bean>
-    <bean id="musicBean3"
-          class="org.RockMusic">
-    </bean>
-    <bean id="musicPlayer"
-          class="org.MusicPlayer">
-        <property name="musicList">
-            <list>
-                <ref bean="musicBean1"/>
-                <ref bean="musicBean2"/>
-                <ref bean="musicBean3"/>
-            </list>
+   <context:property-placeholder location="musicPlayer.properties"/>
 
-        </property>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="value" value="${musicPlayer.value}" />
-    </bean>
+
 </beans>
